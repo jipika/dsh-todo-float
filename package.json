@@ -1,0 +1,44 @@
+{
+  "name": "dsh-todo-float",
+  "version": "0.1.0",
+  "description": "Float the conversation to-do list as a collapsible card in the top-right corner of the session, switchable back to the stock panel from Settings.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jipika/dsh-todo-float.git"
+  },
+  "homepage": "https://github.com/jipika/dsh-todo-float#readme",
+  "bugs": {
+    "url": "https://github.com/jipika/dsh-todo-float/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "todo",
+    "ui",
+    "session",
+    "floating-card",
+    "sidebar"
+  ],
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "private": true
+}
