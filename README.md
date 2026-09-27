@@ -1,5 +1,9 @@
 # dsh-todo-float
 
+> **拥有**：`conversation.input.dock` 里的悬浮任务卡，以及隐藏官方 `[data-testid="todo-panel"]` 的那条 CSS。
+> **冲突时**：与官方 todo dock 面板争同一份数据 —— 本插件把官方那份隐藏，两者只应存在一份；与 `dsh-plugin-polish` 在 composer dock 上的间距调整无交集。
+> **回滚**：删 `todo-float` insert + 重启应用（官方 dock 面板自动回来）。
+
 > Float the conversation to-do list as a collapsible card in the top-right corner of the
 > session — switchable back to the stock panel from Settings.
 >
@@ -47,7 +51,9 @@ dsh plugin --profile <profile> add github:jipika/dsh-todo-float
 - 收起态：一枚小胶囊 `任务 0/3`；展开 / 收起记在 `localStorage["dsh-todo-float:expanded"]`，默认展开。
 - **宽度可拖**：鼠标移到卡片**左边缘**会出现一根竖直把手（`cursor: ew-resize`），按住左右拖即可调宽；
   范围钳制在 **240px ~ 560px**（还会再受 `100vw - 48px` 限制），松手即写入
-  `localStorage["dsh-todo-float:width"]`，下次打开沿用。收起态是 `width:auto` 胶囊，不受影响。
+  `localStorage["dsh-todo-float:width"]`，下次打开沿用。收起态是 `width:auto` 胶囊，但**宽度上限就是这里拖出来的值**
+  （组件把宽度写成 `--dsh-todo-float-card-width`，卡片的 `max-width` 读它）：任务短时继续收缩成窄胶囊，
+  任务长时最多长到展开宽度，不会比展开态还宽。
   拖动期间直接改 DOM 并关掉宽度过渡（`[data-resizing='1']{transition:none}`），松手才回写 React state。
 - 位置贴住会话列右上角：右边界对齐会话列（右侧栏打开时自动避让），顶边在会话头部下方 12px。
 - 会话标题行的角落元素（`[data-conversation-header-corner]`）与 ResizeObserver 一起负责跟随布局变化。
