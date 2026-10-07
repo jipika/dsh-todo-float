@@ -1,5 +1,6 @@
 {
   "name": "dsh-todo-float",
+  "icon": "./assets/icon.svg",
   "version": "0.1.0",
   "description": "Float the conversation to-do list as a collapsible card in the top-right corner of the session, switchable back to the stock panel from Settings.",
   "license": "MIT",

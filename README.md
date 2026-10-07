@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/icon.svg" width="72" alt="dsh-todo-float icon">
+</div>
+
 # dsh-todo-float
 
 > **拥有**：`conversation.input.dock` 里的悬浮任务卡，以及隐藏官方 `[data-testid="todo-panel"]` 的那条 CSS。
